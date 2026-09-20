@@ -1,0 +1,870 @@
+/* Reset & 字體 */
+body {
+    /*font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;*/
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Noto Sans JP", 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+    background-color: #121212;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+/* Navbar 外層 (固定置頂 + 置中) */
+.navbar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    background: transparent;
+}
+
+/* Navbar 內容 */
+.navbar-custom {
+    border-radius: 30px;
+    /*background: rgba(255, 255, 255, 0.8);*/
+    background: rgba(25, 25, 28, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav {
+    margin: 0 auto;
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+    /*color: #000000;*/
+    color: #ffffff;
+}
+
+.nav-item {
+    padding: 0 4px;
+}
+
+.nav-link:hover {
+    background: linear-gradient(155deg, rgba(161, 161, 161, 0.8), rgba(90, 90, 90, 0.5));
+    color: black !important;
+    backdrop-filter: blur(10px);
+}
+
+.nav-link.active {
+    background: rgba(0, 0, 0, 0.5);
+    color: white !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Section 隱藏/顯示的修正 */
+section {
+    display: none; /* 預設完全不佔據空間 */
+    min-height: 100vh;
+    padding-top: 100px; /* 預留 navbar 高度 */
+}
+
+section.active {
+    display: block; /* 只有活躍的區塊才會顯示 */
+}
+
+/* 首頁容器 */
+.section-index .home-container {
+    position: relative;
+    min-height: 500px;
+    z-index: 1;
+}
+
+.section-index .bg-black {
+    background-color: black;
+}
+
+.section-index .image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    align-items: center;
+}
+
+.section-index #scrollImage {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    object-fit: cover;
+    transform: scale(1);
+    transition: transform 0.4s ease-out;
+}
+
+.section-index .color-white {
+    color: #FFFFFF;
+}
+
+/* Banner 外層容器 */
+.section-index .experience-banner-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    height: 550px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 輪播軌道 */
+.section-index .carousel-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-index .no-animation .carousel-item,
+.section-index .no-transition {
+    transition: none !important;
+}
+
+/* 單個項目卡片 */
+.section-index .carousel-item {
+    min-width: 60%; /* 中間卡片佔寬度 */
+    height: 450px;
+    margin: 0 10px;
+    /*background: #f8f9fa;*/
+    background: rgba(25, 25, 28, 0.5);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
+    opacity: 0.5;
+    transform: scale(0.8); /* 預設縮小 */
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 被啟動的（中間）卡片 */
+.section-index .carousel-item.active {
+    opacity: 1;
+    transform: scale(1); /* 中間放大 */
+    z-index: 2;
+}
+
+.section-index .carousel-item img {
+    width: 100%;
+    height: 80%; /* 從 70% 增加到 80%，給照片更多發揮空間 */
+    object-fit: cover; /* 確保圖片填滿，不會變形 */
+    object-position: center; /* 確保人像或重點保持在中間 */
+}
+
+.section-index .carousel-info {
+    height: 20%; /* 剩餘的 20% 給文字 */
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    /*background: white; /* 讓文字底色與圖片分開 */
+    background: transparent;
+}
+
+.section-index .carousel-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 控制按鈕 */
+.section-index .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.3);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    outline: none;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.section-index .prev { left: 5%; }
+.section-index .next { right: 5%; }
+
+.section-index .carousel-btn:hover { background: rgba(0,0,0,0.6); }
+
+.section-index .carousel-btn:focus,
+.section-index .carousel-btn:focus-visible {
+    background: rgba(0,0,0,0.55);
+    box-shadow: 0 0 0 4px rgba(0,0,0,0.2);
+}
+
+/* RWD 調整 */
+@media (max-width: 768px) {
+    .section-index .carousel-item {
+        min-width: 80%;
+        height: 80%;
+    }
+    .section-index .experience-banner-wrapper {
+        height: 500px;
+    }
+    .section-index .home-container {
+        position: relative;
+        min-height: 80% !important;
+        z-index: 1;
+    }
+    .section-index h3 {
+        font-size: 1.5rem;
+    }
+    .section-index h5 {
+        font-size: 1rem;
+    }
+    .section-index .image-container .d-flex {
+        flex-direction: column;
+        align-items: center; /* 讓圖片在手機版居中 */
+    }
+
+    /* 調整圖片在手機版的寬度，確保它們是 100% 寬 */
+    .section-index .image-container .d-flex .w-50 {
+        width: 100% !important;
+    }
+}
+
+
+/* Experience 區塊 */
+.section-experience .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* 卡片可點擊外層 */
+.section-experience .experience-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 卡片樣式 */
+.section-experience .experience-card {
+    display: flex;
+    align-items: stretch; /* 子元素高度一致 */
+    /*background: rgba(255, 255, 255, 0.95);*/
+    background: rgba(25, 25, 28, 0.5);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(15, 15, 15, 0.08);
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+    cursor: pointer;
+}
+
+/* hover 效果 */
+.section-experience .experience-card-link:focus .experience-card,
+.section-experience .experience-card-link:hover .experience-card {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(15, 15, 15, 0.12);
+    outline: none;
+}
+
+.section-experience a:hover {
+    text-decoration: none;
+}
+
+/* 圖片區塊 */
+.section-experience .experience-image {
+    flex: 0 0 48%;
+    max-width: 48%;
+    height: 100%;
+    overflow: hidden;
+    background: #eee;
+}
+
+.section-experience .experience-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 內容區塊 */
+.section-experience .experience-content {
+    flex: 1;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section-experience .experience-content h4 {
+    margin: 0 0 8px;
+    font-size: 1.25rem;
+    /*color: #111;*/
+    color: #ffffff;
+}
+
+.section-experience .experience-content .muted {
+    margin: 0;
+    /*color: #666;*/
+    color: #aaaaaa;
+    font-size: 0.95rem;
+}
+
+/* 篩選按鈕容器 */
+.section-experience .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: left; /* 或是 flex-start */
+}
+
+/* 按鈕樣式 */
+.section-experience .filter-btn {
+    padding: 8px 16px;
+    /*border: 1px solid #ddd;*/
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /*background-color: #fff;*/
+    background-color: rgba(25, 25, 28, 0.8);
+    cursor: pointer;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    /*color: #333;*/
+    color: #fff;
+    outline: none;
+
+}
+
+.section-experience .filter-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}
+
+/* 選中狀態 */
+.section-experience .filter-btn.active {
+    background-color: rgba(0, 0, 0, 0.5); /* 你的主色調 */
+    color: #fff;}
+
+/* 手機版 RWD：圖片在上方，固定卡片高度，圖片占滿上方 */
+@media (max-width: 767.98px) {
+    .section-experience .experience-card {
+        flex-direction: column;
+        width: 100%;           /* 卡片滿版 */
+        /* height: 300px; */ /* 移除固定卡片高度，讓內容決定 */
+        margin: 0;             /* 清除左右空白 */
+        overflow: hidden;      /* 避免圖片超出卡片 */
+        position: relative;
+    }
+
+    .section-experience .experience-image {
+        min-width: 100%;
+        /* height: 60%; */ /* 移除高度百分比，讓它根據 aspect-ratio 或內容決定 */
+        padding-top: 40%; /* 設置圖片區塊寬高比為 16:9 (100% / (16/9) = 56.25%) */
+        position: relative;
+        overflow: hidden;
+        background: #eee; /* 如果圖片載入失敗，顯示背景色 */
+    }
+
+    .section-experience .experience-image img {
+        position: absolute; /* 絕對定位填滿父容器 */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;          /* 拉滿圖片區塊 */
+        object-fit: cover;     /* 保持比例，超出部分裁切 */
+        display: block;
+    }
+
+    .section-experience .experience-content {
+        width: 100%;
+        /* height: 40%; */ /* 移除高度百分比 */
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+/* 桌面版：圖片區塊固定比例，卡片自適應內容 */
+@media (min-width: 768px) {
+    .section-experience .experience-card {
+        flex-direction: row;
+        height: auto;        /* 卡片高度跟內容自適應 */
+    }
+
+    .section-experience .experience-image {
+        flex: 0 0 48%;
+        max-width: 48%;
+        aspect-ratio: 16 / 9; /* 圖片區塊固定比例 */
+        overflow: hidden;     /* 多餘部分裁掉 */
+    }
+
+    .section-experience .experience-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .section-experience .experience-content {
+        flex: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .section-experience .experience-content h4 {
+        font-size: 1.3rem !important;
+    }
+}
+
+
+/* --- Develop Section Styles --- */
+
+.section-develop .develop-list-grid,
+.section-develop .teaching-list-grid {
+    display: grid;
+    /* 建立三欄式網格，欄位間距 20px */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* 確保圖片和文字在卡片內垂直排列 */
+.section-develop .experience-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 圖片和文字居中 */
+    padding: 20px;
+    height: 100%; /* 確保所有卡片高度相同 */
+    text-align: center;
+    /*background: rgba(255, 255, 255, 0.95);*/
+    background: rgba(25, 25, 28, 0.5);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(15, 15, 15, 0.08);
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+    cursor: pointer;
+}
+
+/* 卡片連結的 hover 效果 */
+.section-develop .experience-card-link:focus .experience-card,
+.section-develop .experience-card-link:hover .experience-card {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(15, 15, 15, 0.12);
+    outline: none;
+}
+
+.section-develop .experience-card-link:hover {
+    text-decoration: none;
+}
+
+.section-develop .experience-image {
+    width: 100%;
+    /* 調整 max-width 和 height 來放大 Logo 區域 */
+    max-width: 150px;
+    height: 150px;
+    display: flex; /* 讓圖片在容器內居中 */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px; /* 在 Logo 和文字之間留出空間 */
+    background: transparent; /* 移除背景色 */
+}
+
+.section-develop .experience-image img {
+    /*width: 100%;*/
+    height: 70%;
+    object-fit: contain; /* 確保 Logo 完整顯示，不會裁切或變形 */
+}
+
+/* 內容區塊 */
+.section-develop .experience-content {
+    flex: 1; /* 讓內容區塊自動填滿剩餘空間 */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 文字從上方開始排列 */
+    align-items: center; /* 文字居中 */
+}
+
+.section-develop .experience-content h4 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    /*color: #111;*/
+    color: #ffffff;
+}
+
+.section-develop .experience-content .muted,
+.section-develop .experience-content .description {
+    font-size: 0.95rem;
+    /*color: #666;*/
+    color: #aaaaaa;
+    margin: 0;
+}
+
+.section-develop .experience-content .description {
+    margin-top: 10px;
+}
+
+/* RWD for Tablets (2 columns) */
+@media (max-width: 991.98px) {
+    .section-develop .develop-list-grid,
+    .section-develop .teaching-list-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .section-develop .experience-image img {
+        /*width: 100%;*/
+        height: 60%;
+        object-fit: contain; /* 確保 Logo 完整顯示，不會裁切或變形 */
+    }
+}
+
+/* RWD for Mobile (1 column) */
+@media (max-width: 767.98px) {
+    .section-develop .develop-list-grid,
+    .section-develop .teaching-list-grid {
+        grid-template-columns: 1fr;
+    }
+    .section-develop .experience-image img {
+        /*width: 100%;*/
+        height: 70%;
+        object-fit: contain; /* 確保 Logo 完整顯示，不會裁切或變形 */
+    }
+}
+
+/* --- 關於我區塊樣式 --- */
+.section-about .profile-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    /*border: 5px solid #fff;*/
+    border: 5px solid #333333;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.section-about .about-content h4 {
+    font-weight: 600;
+}
+
+.section-about #about-bio {
+    margin-bottom: 16px;
+    color: #4b5563;
+    line-height: 1.8;
+}
+
+.section-about .about-email-copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border: 1px solid rgba(17, 17, 17, 0.12);
+    border-radius: 10px;
+    background: transparent;
+    /*color: #111;*/
+    color: #ffffff;
+    font-size: 0.96rem;
+    line-height: 1.2;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.section-about .about-email-copy-btn:hover {
+    background: rgba(17, 17, 17, 0.04);
+    border-color: rgba(17, 17, 17, 0.18);
+}
+
+.section-about .about-email-copy-btn:focus,
+.section-about .about-email-copy-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(17, 17, 17, 0.08);
+}
+
+.section-about #about-email-text {
+    word-break: break-all;
+}
+
+.section-about .about-content ul {
+    padding-left: 20px;
+}
+
+/* 技能標籤樣式 */
+.section-about .skills-list .badge {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+/* 社群連結樣式 */
+.section-about .social-links {
+    gap: 20px;
+}
+
+.section-about .social-link {
+    color: #333;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.section-about .social-link:hover {
+    color: #007bff;
+}
+
+.section-about .qrcode-img {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+/* --- 關於我區塊樣式 --- */
+.section-about .profile-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    /*border: 5px solid #fff;*/
+    border: 5px solid #333333;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.section-about .about-content h4 {
+    font-weight: 600;
+}
+
+.section-about .about-content ul {
+    padding-left: 20px;
+}
+
+.section-about .info-list,
+.section-about .skills-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.section-about .info-card,
+.section-about .skill-card {
+    display: flex;
+    padding: 20px;
+    min-height: 118px;
+    height: 100%;
+    /*background: rgba(255, 255, 255, 0.95);*/
+    background: rgba(25, 25, 28, 0.5);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(15, 15, 15, 0.08);
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.section-about .info-card {
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.section-about .info-card-link,
+.section-about .info-card-static {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.section-about .skill-card {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* hover 效果 */
+.section-about .info-card:hover,
+.section-about .skill-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(15, 15, 15, 0.12);
+}
+
+.section-about .skill-card:hover {
+    cursor: default;
+}
+
+.section-about .info-card-image-wrapper {
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+}
+
+.section-about .info-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.section-about .info-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    text-align: left;
+}
+
+.section-about .info-card h4 {
+    margin: 0;
+    /*color: #111;*/
+    color: #ffffff;
+    font-size: 1.05rem;
+    line-height: 1.45;
+    text-align: left;
+}
+
+.section-about .info-card-period {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* 內容區塊 */
+.section-about .skill-card i {
+    font-size: 2.5rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.section-about .skill-card h4 {
+    font-size: 1.1rem;
+    margin: 0;
+    /*color: #111;*/
+    color: #ffffff;
+}
+
+/* RWD for Tablets (2 columns) */
+@media (max-width: 991.98px) {
+    .section-about .info-list,
+    .section-about .skills-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* RWD for Mobile (1 column) */
+@media (max-width: 767.98px) {
+    .section-about .info-list,
+    .section-about .skills-list {
+        grid-template-columns: 1fr;
+    }
+
+    .section-about .about-email-copy-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .section-about .info-card {
+        padding: 18px;
+    }
+}
+
+/* --- 關於我區塊 - 社群連結卡片樣式 --- */
+.section-about .social-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 預設為四欄 */
+    gap: 20px;
+}
+
+/* 卡片連結外層 */
+.section-about .social-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 卡片樣式 */
+.section-about .social-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+    text-align: center;
+    /*background: rgba(255, 255, 255, 0.95);*/
+    background: rgba(25, 25, 28, 0.5);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(15, 15, 15, 0.08);
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+    cursor: pointer;
+}
+
+/* hover 效果 */
+.section-about .social-card-link:focus .social-card,
+.section-about .social-card-link:hover .social-card {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(15, 15, 15, 0.12);
+    outline: none;
+}
+
+/* 內容區塊 */
+.section-about .social-content {
+    flex: 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-about .social-content i {
+    font-size: 2.5rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.section-about .social-content h4 {
+    font-size: 1.1rem;
+    margin: 0;
+    /*color: #111;*/
+    color: #ffffff;
+}
+
+/* RWD for Tablets (2 columns) */
+@media (max-width: 991.98px) {
+    .section-about .social-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* RWD for Mobile (1 column) */
+@media (max-width: 767.98px) {
+    .section-about .social-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* Footer */
+footer {
+    padding: 20px 0;
+    text-align: center;
+    /*background-color: #f8f8f8;*/
+    background-color: #121212;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

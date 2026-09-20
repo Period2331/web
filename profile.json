@@ -1,0 +1,52 @@
+{
+  "about": {
+    "name": "主播 Period",
+    "bio": "多少會點攝影，偶爾出現在場次 <br>攝影資歷:2024/7-now",
+    "profile_img": "static/img/profile.png",
+    "email": "tais43011@gmail.com",
+    "education": [
+      {
+        "title": "Canon EOS R6",
+        "image": "static/img/R6_Front_BODY.png",
+        "link": "https://global.canon/zh/c-museum/product/dslr895.html"
+      },
+      {
+        "title": "EF 24-105mm F4L IS USM",
+        "image": "static/img/EF24-105F4L.png",
+        "link": "https://global.canon/zh/c-museum/product/ef387.html"
+      },
+      {
+        "title": "EF 50mm F1.4 USM",
+        "image": "static/img/EF50f1.4.png",
+        "link": "https://global.canon/zh/c-museum/product/ef318.html"
+      },
+      {
+        "title": "LEICA APO-MACRO-ELMARIT-R 100mm F2.8",
+        "image": "static/img/LEICA100.png",
+        "link": "https://www.summilux.net/materiel/Apo-Macro-Elmarit-R-100-mm-f-2-8"
+      },
+      {
+        "title": "LEICA Elmarit-R 19 mm F2.8 II",
+        "image": "static/img/LEICA19.png",
+        "link": "https://www.summilux.net/materiel/Elmarit-R-19-mm-f-2-8-version-2"
+      },
+      {
+        "title": "LEICA APO-ELMARIT-R 2x",
+        "image": "static/img/LEICA2x.png",
+        "link": "https://www.summilux.net/materiel/Apo-Extender-R-2x"
+      }
+    ],
+    "social": [
+        {
+        "platform": "Twitter",
+        "url": "https://x.com/Period_chitai",
+        "icon": "fab fa-twitter fa-2x"
+      },
+      {
+        "platform": "Instagram",
+        "url": "https://www.instagram.com/period._.chitai/",
+        "icon": "fab fa-instagram fa-2x"
+      }
+    ]
+  }
+}
