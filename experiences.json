@@ -1,5 +1,19 @@
 [
   {
+    "id": "exp_34",
+    "useInternal": false,
+    "source": "experiences",
+    "href": "https://www.instagram.com/p/DeFKdynEz8s",
+    "ariaLabel": "UX-20 スターター グローリーワルキューレLF",
+    "imageSrc": "static/img/榮耀女武神.JPG",
+    "imageAlt": "榮耀女武神",
+    "title": "UX-20 スターター グローリーワルキューレLF",
+    "date": "2026 年 9 月",
+    "gallery": [],
+    "featured": true,
+    "tags": ["特寫"]
+  },
+  {
     "id": "exp_33",
     "useInternal": false,
     "source": "experiences",
