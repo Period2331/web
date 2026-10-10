@@ -1,5 +1,33 @@
 [
   {
+    "id": "exp_36",
+    "useInternal": false,
+    "source": "experiences",
+    "href": "https://www.instagram.com/p/DeUTaQuGvAk",
+    "ariaLabel": "CX-00 EVANGELION DECK SET",
+    "imageSrc": "static/img/EVA.JPG",
+    "imageAlt": "EVA",
+    "title": "CX-00 EVANGELION DECK SET",
+    "date": "2026 年 10 月",
+    "gallery": [],
+    "featured": true,
+    "tags": ["特寫"]
+  },
+  {
+    "id": "exp_35",
+    "useInternal": false,
+    "source": "experiences",
+    "href": "https://www.instagram.com/p/DeR5ILNmsO3",
+    "ariaLabel": "CX-00 テイがレイジ360T",
+    "imageSrc": "static/img/迪迦.JPG",
+    "imageAlt": "迪迦",
+    "title": "CX-00 テイがレイジ360T",
+    "date": "2026 年 10 月",
+    "gallery": [],
+    "featured": false,
+    "tags": ["特寫"]
+  },
+  {
     "id": "exp_34",
     "useInternal": false,
     "source": "experiences",
